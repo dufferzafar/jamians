@@ -1,0 +1,38 @@
+roll_number: "12-CSS-59"
+name: "Shadab Zafar"
+linkedin: "https://linkedin.com/in/dufferzafar"
+
+timeline:
+  - date: "2016-04"
+    country: "Singapore"
+    comment: "Dellivered a talk at FOSSASIA Singapore"
+
+  - date: "2016-07"
+    city: "Noida"
+    country: "India"
+    comment: "Started at Adobe"
+
+  - date: "2016-09"
+    city: "Delhi"
+    country: "India"
+    comment: "Left Adobe to prepare for GATE"
+
+  - date: "2017"
+    city: "Delhi"
+    country: "India"
+    comment: "Joined IIT Delhi for M.Tech"
+
+  - date: "2019-06"
+    city: "Delhi"
+    country: "India"
+    comment: "Passed out of IIT Delhi"
+
+  - date: "2019-07"
+    city: "Gurgaon"
+    country: "India"
+    comment: "Joined Tower Research Capital"
+
+  - date: "2020-03"
+    city: "Delhi"
+    country: "India"
+    comment: "Moved back home due to COVID"

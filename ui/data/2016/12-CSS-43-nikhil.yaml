@@ -1,0 +1,44 @@
+roll_number: "12-CSS-43"
+name: "Nikhil Mittal"
+linkedin: ""
+
+timeline: 
+  - date: "2016-07"
+    city: "Noida"
+    country: "India"
+    comment: "Started at Adobe"
+
+  - date: "2016-09"
+    city: "Delhi"
+    country: "India"
+    comment: "Left Adobe to prepare for GATE"
+
+  - date: "2017"
+    city: "Kanpur"
+    country: "India"
+    comment: "Joined IIT Kanpur for M.Tech"
+
+  - date: "2019-06"
+    city: "Kanpur"
+    country: "India"
+    comment: "Passed out of IIT Kanpur"
+
+  - date: "2019-07"
+    city: "Bangalore"
+    country: "India"
+    comment: "Moved to Bangalore"
+
+  - date: "2020-03"
+    city: "Delhi"
+    country: "India"
+    comment: "Moved back home due to COVID"
+
+  - date: "2025-08"
+    city: "Seattle"
+    country: "USA"
+    comment: "Moved to Seattle at Amazon"
+
+  - date: "2025-11"
+    city: "San Francisco"
+    country: "USA"
+    comment: "Moved to San Francisco to live with wife"
