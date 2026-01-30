@@ -37,6 +37,29 @@ onMounted(() => {
   map.on('load', () => {
     console.log('Map loaded')
     
+    // Create airplane icon as a canvas image
+    const size = 24
+    const canvas = document.createElement('canvas')
+    canvas.width = size
+    canvas.height = size
+    const ctx = canvas.getContext('2d')
+    
+    // Draw airplane shape pointing right
+    ctx.fillStyle = '#ef4444'
+    ctx.beginPath()
+    // Simple airplane/arrow shape
+    ctx.moveTo(size, size/2)        // nose
+    ctx.lineTo(size*0.3, size*0.15) // top wing
+    ctx.lineTo(size*0.4, size/2)    // body indent top
+    ctx.lineTo(size*0.1, size*0.3)  // tail top
+    ctx.lineTo(size*0.1, size*0.7)  // tail bottom
+    ctx.lineTo(size*0.4, size/2)    // body indent bottom
+    ctx.lineTo(size*0.3, size*0.85) // bottom wing
+    ctx.closePath()
+    ctx.fill()
+    
+    map.addImage('airplane', { width: size, height: size, data: ctx.getImageData(0, 0, size, size).data })
+    
     // Add a source for student locations (empty for now)
     map.addSource('students', {
       type: 'geojson',
@@ -99,6 +122,71 @@ onMounted(() => {
         ],
         'circle-radius': 8,
         'circle-stroke-width': 2,
+        'circle-stroke-color': '#fff'
+      }
+    })
+
+    // Add source for selected person's trail
+    map.addSource('trail', {
+      type: 'geojson',
+      data: {
+        type: 'FeatureCollection',
+        features: []
+      }
+    })
+
+    // Trail line (dashed)
+    map.addLayer({
+      id: 'trail-line',
+      type: 'line',
+      source: 'trail',
+      filter: ['==', '$type', 'LineString'],
+      paint: {
+        'line-color': '#ef4444',
+        'line-width': 2,
+        'line-dasharray': [2, 2]
+      }
+    })
+
+    // Airplane icon along trail lines
+    map.addLayer({
+      id: 'trail-planes',
+      type: 'symbol',
+      source: 'trail',
+      filter: ['==', '$type', 'LineString'],
+      layout: {
+        'symbol-placement': 'line',
+        'symbol-spacing': 200,
+        'icon-image': 'airplane',
+        'icon-size': 0.8,
+        'icon-rotation-alignment': 'map',
+        'icon-allow-overlap': true,
+        'icon-ignore-placement': true
+      }
+    })
+
+    // Trail dots - color and size based on isLatest property
+    map.addLayer({
+      id: 'trail-points',
+      type: 'circle',
+      source: 'trail',
+      filter: ['==', '$type', 'Point'],
+      paint: {
+        'circle-color': [
+          'case',
+          ['==', ['get', 'isLatest'], 1], '#3b82f6',  // blue for latest
+          '#ef4444'  // red for past
+        ],
+        'circle-radius': [
+          'case',
+          ['==', ['get', 'isLatest'], 1], 10,  // larger for latest
+          5  // smaller for past
+        ],
+        'circle-stroke-width': [
+          'case',
+          ['==', ['get', 'isLatest'], 1], 3,
+          2
+        ],
         'circle-stroke-color': '#fff'
       }
     })
@@ -191,8 +279,77 @@ const updateStudents = (geojsonData) => {
   }
 }
 
-// Expose method to parent
-defineExpose({ updateStudents })
+// Method to show trail for a selected person
+const showTrail = (timeline) => {
+  if (!map || !map.getSource('trail')) return
+  
+  if (!timeline || timeline.length === 0) {
+    // Clear trail
+    map.getSource('trail').setData({
+      type: 'FeatureCollection',
+      features: []
+    })
+    return
+  }
+
+  // Filter timeline entries that have coordinates
+  const validEntries = timeline.filter(entry => entry.coordinates)
+  
+  if (validEntries.length === 0) {
+    map.getSource('trail').setData({
+      type: 'FeatureCollection',
+      features: []
+    })
+    return
+  }
+
+  const features = []
+  const lastIndex = validEntries.length - 1
+  
+  // Add points for each location
+  validEntries.forEach((entry, index) => {
+    features.push({
+      type: 'Feature',
+      properties: {
+        index,
+        city: entry.city,
+        country: entry.country,
+        date: entry.dateStr,
+        comment: entry.comment,
+        isLatest: index === lastIndex ? 1 : 0  // 1 for latest, 0 for past
+      },
+      geometry: {
+        type: 'Point',
+        coordinates: entry.coordinates
+      }
+    })
+  })
+  
+  // Add line connecting all points
+  if (validEntries.length > 1) {
+    features.push({
+      type: 'Feature',
+      properties: {},
+      geometry: {
+        type: 'LineString',
+        coordinates: validEntries.map(e => e.coordinates)
+      }
+    })
+  }
+  
+  map.getSource('trail').setData({
+    type: 'FeatureCollection',
+    features
+  })
+}
+
+// Method to clear trail
+const clearTrail = () => {
+  showTrail(null)
+}
+
+// Expose methods to parent
+defineExpose({ updateStudents, showTrail, clearTrail })
 </script>
 
 <template>

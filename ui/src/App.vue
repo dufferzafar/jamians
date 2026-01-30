@@ -99,6 +99,10 @@ function handleStudentClick(locationData) {
       comment: locationData.comment,
       unknown: locationData.unknown === true || locationData.unknown === 'true'
     }
+    // Show trail for selected student
+    if (mapRef.value) {
+      mapRef.value.showTrail(student.timeline)
+    }
   }
 }
 
@@ -106,6 +110,10 @@ function handleStudentClick(locationData) {
 function closeDetailPanel() {
   selectedStudent.value = null
   selectedStudentLocation.value = null
+  // Clear trail
+  if (mapRef.value) {
+    mapRef.value.clearTrail()
+  }
 }
 
 // Select student from search
@@ -121,6 +129,10 @@ function selectStudentFromSearch(student) {
       comment: feature.properties.comment,
       unknown: feature.properties.unknown
     }
+  }
+  // Show trail for selected student
+  if (mapRef.value) {
+    mapRef.value.showTrail(student.timeline)
   }
   showSearch.value = false
   searchQuery.value = ''
