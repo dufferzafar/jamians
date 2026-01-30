@@ -1,17 +1,12 @@
 roll_number: "12-CSS-43"
 name: "Nikhil Mittal"
-linkedin: ""
+linkedin: "https://www.linkedin.com/in/nickedes/"
 
 timeline: 
-  - date: "2016-07"
+  - date: "2016-06"
     city: "Noida"
     country: "India"
-    comment: "Started at Adobe"
-
-  - date: "2016-09"
-    city: "Delhi"
-    country: "India"
-    comment: "Left Adobe to prepare for GATE"
+    comment: "Joined Info Edge"
 
   - date: "2017"
     city: "Kanpur"
@@ -26,12 +21,17 @@ timeline:
   - date: "2019-07"
     city: "Bangalore"
     country: "India"
-    comment: "Moved to Bangalore"
+    comment: "Joined Fortanix"
 
   - date: "2020-03"
     city: "Delhi"
     country: "India"
     comment: "Moved back home due to COVID"
+
+  - date: "2020-12"
+    city: "Bangalore"
+    country: "India"
+    comment: "Joined Amazon"
 
   - date: "2025-08"
     city: "Seattle"
@@ -41,4 +41,4 @@ timeline:
   - date: "2025-11"
     city: "San Francisco"
     country: "USA"
-    comment: "Moved to San Francisco to live with wife"
+    comment: "Moved around in Amazon to live with wife"

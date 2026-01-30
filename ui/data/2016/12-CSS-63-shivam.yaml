@@ -1,5 +1,34 @@
 roll_number: "12-CSS-63"
 name: "Shivam Rana"
-linkedin: ""
+linkedin: "https://www.linkedin.com/in/tminima/"
 
-timeline: []
+timeline:
+  - date: "2016-06"
+    city: "Noida"
+    country: "India"
+    comment: "Joined Opera Solutions"
+
+  - date: "2017-03"
+    city: "Gurgaon"
+    country: "India"
+    comment: "Joined KPMG as Analyst"
+
+  - date: "2018-08"
+    city: "Bengaluru"
+    country: "India"
+    comment: "Joined Jio Platforms as Data Scientist"
+
+  - date: "2021-02"
+    city: "Bengaluru"
+    country: "India"
+    comment: "Joined Swiggy as Data Scientist II"
+
+  - date: "2022-04"
+    city: "Delhi"
+    country: "India"
+    comment: "Remote work at Swiggy"
+
+  - date: "2025-04"
+    city: "Dubai"
+    country: "UAE"
+    comment: "Joined Careem as Senior Data Scientist II"

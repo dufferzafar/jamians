@@ -1,6 +1,6 @@
 roll_number: "12-CSS-44"
 name: "Prerit Garg"
-linkedin: ""
+linkedin: "https://www.linkedin.com/in/prerit2010/"
 
 timeline:
   - date: "2016-07"
@@ -26,14 +26,19 @@ timeline:
   - date: "2019-07"
     city: "Bangalore"
     country: "India"
-    comment: "Moved to Bangalore"
+    comment: "Joined Oracle"
 
   - date: "2020-03"
     city: "Noida"
     country: "India"
     comment: "Moved back home due to COVID"
 
+  - date: "2020-10"
+    city: "Noida"
+    country: "India"
+    comment: "Joined Naukri.com"
+
   - date: "2023-07"
     city: "Bangalore"
     country: "India"
-    comment: "Moved to Bangalore again"
+    comment: "Joined ZScaler"
