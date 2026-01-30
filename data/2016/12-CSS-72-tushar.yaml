@@ -1,0 +1,15 @@
+roll_number: "12-CSS-72"
+name: "Tushar Raheja"
+linkedin: "https://www.linkedin.com/in/tushar-raheja-bbab51118/"
+
+timeline:
+  - date: "2016-07"
+    city: "Faridabad"
+    country: "India"
+    comment: "Joined Yamaha"
+
+  - date: "2025-07"
+    city: "Noida"
+    country: "India"
+    comment: "Joined Mindtree"
+

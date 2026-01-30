@@ -1,0 +1,24 @@
+roll_number: "12-CSS-11"
+name: "Ameen Mohammad Khan"
+linkedin: "https://www.linkedin.com/in/ameenkhan07/"
+
+timeline:
+  - date: "2016-07"
+    city: "Noida"
+    country: "India"
+    comment: "Started at InnovAccer"
+
+  - date: "2018-08"
+    city: "Buffalo"
+    country: "USA"
+    comment: "Joined University at Buffalo for MS"
+
+  - date: "2020-04"
+    city: "Seattle"
+    country: "USA"
+    comment: "Joined Amazon Alexa AI"
+
+  - date: "2021-10"
+    city: "Seattle"
+    country: "USA"
+    comment: "Promoted to SDE II at Amazon AGI"

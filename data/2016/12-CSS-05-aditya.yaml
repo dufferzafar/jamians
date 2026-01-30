@@ -1,0 +1,34 @@
+roll_number: "12-CSS-05"
+name: "Aditya Kumar"
+linkedin: "https://www.linkedin.com/in/aditya-kumar-a48126106/"
+
+timeline:
+  - date: "2016-06"
+    city: "Noida"
+    country: "India"
+    comment: "Started at Opera Solutions"
+
+  - date: "2018"
+    city: "Delhi"
+    country: "India"
+    comment: "Joined IIT Delhi for M.Tech"
+
+  - date: "2020-07"
+    city: "Bengaluru"
+    country: "India"
+    comment: "Joined Fortanix"
+
+  - date: "2021-09"
+    city: "Bengaluru"
+    country: "India"
+    comment: "Promoted to Software Engineer - 3 at Fortanix"
+
+  - date: "2022-02"
+    city: "Delhi"
+    country: "India"
+    comment: "Joined AptEdge as Senior Backend Engineer"
+
+  - date: "2024-02"
+    city: "Gurgaon"
+    country: "India"
+    comment: "Moved to Gurgaon after marriage"

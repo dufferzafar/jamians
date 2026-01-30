@@ -1,0 +1,29 @@
+roll_number: "12-CSS-16"
+name: "Avishkar Gupta"
+linkedin: "https://www.linkedin.com/in/avishkar-gupta/"
+
+timeline:
+  - date: "2016-06"
+    city: "Noida"
+    country: "India"
+    comment: "Joined Info Edge (99acres)"
+
+  - date: "2017-09"
+    city: "Bengaluru"
+    country: "India"
+    comment: "Joined Red Hat as Data Scientist"
+
+  - date: "2020-07"
+    city: "Bengaluru"
+    country: "India"
+    comment: "Promoted to Senior Data Scientist at Red Hat"
+
+  - date: "2021-08"
+    city: "Delhi"
+    country: "India"
+    comment: "Joined Haptik as ML Scientist III"
+
+  - date: "2026-01"
+    city: "Noida"
+    country: "India"
+    comment: "Joined Microsoft"
