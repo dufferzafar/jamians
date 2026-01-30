@@ -14,11 +14,13 @@ const CITY_COORDS = {
   'kolkata,india': [88.3639, 22.5726],
   'ahmedabad,india': [72.5714, 23.0225],
   'jaipur,india': [75.7873, 26.9124],
+  'kanpur,india': [80.3569, 26.4499],
   'lucknow,india': [80.9462, 26.8467],
   'chandigarh,india': [76.7794, 30.7333],
   'noida,india': [77.3910, 28.5355],
   'gurgaon,india': [77.0266, 28.4595],
   'gurugram,india': [77.0266, 28.4595],
+  'faridabad,india': [77.3164, 28.4595],
   
   // USA
   'san francisco,usa': [-122.4194, 37.7749],

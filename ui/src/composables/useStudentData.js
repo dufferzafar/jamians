@@ -76,6 +76,37 @@ export function useStudentData() {
   }
 
   /**
+   * Add small offsets to features at the same location so they don't overlap
+   */
+  const spreadOverlappingPoints = (features) => {
+    // Group by coordinate string
+    const groups = {}
+    features.forEach((f, idx) => {
+      const key = f.geometry.coordinates.join(',')
+      if (!groups[key]) groups[key] = []
+      groups[key].push(idx)
+    })
+    
+    // For groups with multiple points, spread them in a circle
+    const OFFSET = 0.003 // ~300m offset for visibility
+    Object.values(groups).forEach(indices => {
+      if (indices.length <= 1) return
+      
+      const count = indices.length
+      indices.forEach((idx, i) => {
+        const angle = (2 * Math.PI * i) / count
+        const [lng, lat] = features[idx].geometry.coordinates
+        features[idx].geometry.coordinates = [
+          lng + OFFSET * Math.cos(angle),
+          lat + OFFSET * Math.sin(angle)
+        ]
+      })
+    })
+    
+    return features
+  }
+
+  /**
    * Get student locations at a specific date as GeoJSON
    */
   const getLocationsAtDate = (targetDate) => {
@@ -93,7 +124,7 @@ export function useStudentData() {
       
       // If no location found, use Jamia (unknown)
       const isUnknown = location === null
-      const coords = location || JAMIA_COORDS
+      const coords = location ? [...location] : [...JAMIA_COORDS] // Clone to avoid mutation
       
       return {
         type: 'Feature',
@@ -113,6 +144,9 @@ export function useStudentData() {
         }
       }
     })
+    
+    // Spread out overlapping points
+    spreadOverlappingPoints(features)
     
     return {
       type: 'FeatureCollection',
